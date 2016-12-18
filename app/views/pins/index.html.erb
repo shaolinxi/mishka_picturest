@@ -1,0 +1,29 @@
+<div class="btn-group" role="group" aria-label>
+  <p id="notice"><%= notice %></p>
+  <div class="jumbotron">
+    <h1>Pins & Pictures</h1>
+    <div class="jumbotron">
+    <table>
+      <thead>
+        <tr>
+          <th>Let's see what we have here at this moment...<br></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+        <br>
+      <tbody>
+        <% @pins.each do |pin| %>
+          <tr>
+            <td><%= pin.description %></td>
+            <td><button type="button" class="btn btn-default"><%= link_to 'Show', pin %></button>&nbsp;</td>
+            <td><button type="button" class="btn btn-default"><%= link_to 'Edit', edit_pin_path(pin) %></button>&nbsp;</td>
+            <td><button type="button" class="btn btn-default"><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <br>
+    <button type="button" class="btn btn-default"><%= link_to 'New Pin', new_pin_path %></button>
+  </div>
+</div>
