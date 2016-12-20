@@ -9,8 +9,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.2.0'
+<<<<<<< HEAD
 gem 'paperclip', '~> 5.1'
 gem 'aws-sdk', '~> 2.6', '>= 2.6.38'
+=======
+gem 'paperclip', '~> 4.3.0'
+>>>>>>> 2ca7ba5... installed paperclip
 
 group :development, :test do
   gem 'byebug'
