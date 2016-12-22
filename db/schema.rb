@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161219155221) do
-=======
-ActiveRecord::Schema.define(version: 20161220154708) do
->>>>>>> 2ca7ba5... installed paperclip
 
   create_table "pins", force: :cascade do |t|
     t.string   "description"
