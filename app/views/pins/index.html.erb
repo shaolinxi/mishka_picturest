@@ -17,17 +17,25 @@
           <tr>
             <td><%= image_tag pin.image.url(:medium) %></td>
             <td><%= pin.description %></td>
-            <td><button type="button" class="btn btn-default"><%= link_to 'Show', pin %></button>&nbsp;</td>
+              <%= link_to pin do %>
+                <td><button type="button" class="btn btn-default"> 'Show' </button>&nbsp;</td>
+              <% end %>
             <% if pin.user == current_user %>
-              <td><button type="button" class="btn btn-default"><%= link_to 'Edit', edit_pin_path(pin) %></button>&nbsp;</td>
-              <td><button type="button" class="btn btn-default"><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-            <% end %>
+                <%= link_to edit_pin_path(pin) do %>
+                  <td><button type="button" class="btn btn-default"> 'Edit' </button>&nbsp;</td>
+                <% end %>
+                <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <td><button type="button" class="btn btn-default"> 'Destroy' </button></td>
+                <% end %>
+              <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
     
     <br>
-    <button type="button" class="btn btn-default"><%= link_to 'New Pin', new_pin_path %></button>
+    <%= link_to new_pin_path do %>
+      <button type="button" class="btn btn-default"> 'New Pin' </button>
+    <% end %>
   </div>
 </div>
