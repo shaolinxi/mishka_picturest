@@ -15,11 +15,10 @@
       <tbody>
         <% @pins.each do |pin| %>
           <tr>
-            <td><%= image_tag pin.image.url(:medium) %></td>
+            <td><%= image_tag pin.image.url (:medium) %></td>
             <td><%= pin.description %></td>
-              <%= link_to pin do %>
-                <td><button type="button" class="btn btn-default"> 'Show' </button>&nbsp;</td>
-              <% end %>
+            <td><%= link_to 'Show', pin, class: 'btn btn-default' %></td>
+              
             <% if pin.user == current_user %>
                 <%= link_to edit_pin_path(pin) do %>
                   <td><button type="button" class="btn btn-default"> 'Edit' </button>&nbsp;</td>
