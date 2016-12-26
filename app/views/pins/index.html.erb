@@ -7,11 +7,11 @@
       <thead>
         <tr>
           <th>Picture</th>
-          <th>Let's see what we have here at this moment...<br></th>
+          <th>Short description<br></th>
           <th colspan="3"></th>
         </tr>
       </thead>
-        <br>
+        </br>
       <tbody>
         <% @pins.each do |pin| %>
           <tr>
@@ -20,21 +20,14 @@
             <td><%= link_to 'Show', pin, class: 'btn btn-default' %></td>
               
             <% if pin.user == current_user %>
-                <%= link_to edit_pin_path(pin) do %>
-                  <td><button type="button" class="btn btn-default"> 'Edit' </button>&nbsp;</td>
-                <% end %>
-                <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <td><button type="button" class="btn btn-default"> 'Destroy' </button></td>
-                <% end %>
-              <% end %>
+              <td><%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-default' %></td>
+              <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
-    
     <br>
-    <%= link_to new_pin_path do %>
-      <button type="button" class="btn btn-default"> 'New Pin' </button>
-    <% end %>
+    <%= link_to 'New Pin', new_pin_path, class: 'btn btn-default' %>
   </div>
 </div>
