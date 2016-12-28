@@ -79,8 +79,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'mishka-picturest.herokuapp.com'}
   config.paperclip_defaults = {
     :storage => :s3,
-    :bucket => ENV['S3_BUCKET'],
     :s3_region => ENV['AWS_REGION'],
+    :bucket => ENV['S3_BUCKET'],
     :s3_credentials => {
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
