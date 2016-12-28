@@ -7,10 +7,7 @@
   <%= @pin.description %>
 </p>
 <% if @pin.user == current_user %>
-  <%= link_to edit_pin_path(@pin) do %>
-    <button type="button" class="btn btn-default"> 'Edit' </button> |
-  <% end %>
+  <%= link_to 'Edit', edit_pin_path(@pin), class: 'btn btn-default' %>
+  <%= link_to 'Back', pins_path, class: 'btn btn-default' %>
 <% end %>
-<%= link_to pins_path do %>
-  <button type="button" class="btn btn-default"> 'Back' </button>
-<% end %>
+</div>
