@@ -1,33 +1,12 @@
-<div class="btn-group" role="group" aria-label>
-  <p id="notice"><%= notice %></p>
-  <div class="jumbotron">
-    <h1>Pins & Pictures</h1>
-    <div class="jumbotron">
-    <table>
-      <thead>
-        <tr>
-          <th>Picture</th>
-          <th>Short description<br></th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-        </br>
-      <tbody>
-        <% @pins.each do |pin| %>
-          <tr>
-            <td><%= image_tag pin.image.url (:medium) %></td>
-            <td><%= pin.description %></td>
-            <td><%= link_to 'Show', pin, class: 'btn btn-default' %></td>
-              
-            <% if pin.user == current_user %>
-              <td><%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-default' %></td>
-              <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <br>
-    <%= link_to 'New Pin', new_pin_path, class: 'btn btn-default' %>
-  </div>
+<% @pins.each do |pin| %>
+  <%= link_to image_tag(pin.image.url(:medium)), pin %><br/>
+  <%= pin.description %><br/>
+  <% if pin.user == current_user %>
+    <%= link_to 'Edit', edit_pin_path(pin), class: 'btn btn-default' %><br/>
+    <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %><br/>
+  <% end %>
+<% end %>
+<br/>
+<%= link_to 'New Pin', new_pin_path, class: 'btn btn-default' %>
+</div>
 </div>
